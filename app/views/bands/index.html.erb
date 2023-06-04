@@ -1,5 +1,15 @@
-<%= link_to "バンド投稿ページへ", new_band_path %>
+<% if user_signed_in? %>
+    <% if current_user.admin? %>
+        <%= link_to "バンド投稿ページへ", new_band_path %>
+    <% end %>
+<% end %>
 <%= link_to "ライブ情報検索ページへ", live_info_bands_path %>
 <%= link_to "バンド情報ページへ", band_info_bands_path %>
-
-
+<%= link_to "新規登録", new_user_registration_path %>
+<% unless user_signed_in? %>
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "新規登録", new_user_registration_path %>
+<% end %>
+<% if user_signed_in? %>
+    <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+<% end %>

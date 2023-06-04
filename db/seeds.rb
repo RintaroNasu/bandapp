@@ -9,7 +9,8 @@
 # Band.create!(name: "backnumber")
 # Band.create!(name: "優里")
 # Band.create!(name: "nobelbright")
-Festival.create([
-  { name: 'numbershot' },
-  { name: 'WILDBUNCH' },
-])
+User.create!(name:  "那須凜太郎",
+    email: "rintaro624528@au.com",
+    password:  "123456",
+    password_confirmation: "123456",
+    admin: true)
