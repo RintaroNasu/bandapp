@@ -1,0 +1,21 @@
+<h3>ライブ情報検索ページへ</h3>
+<%#= form_tag({controller:"bands",action:"live_info"}, method: :get) do %>
+  <%#= label_tag :keywords, '検索ワード' %>
+  <%#= text_field_tag :word%>
+  <%#= submit_tag '検索' %>
+<%#z end %>
+<%= form_tag({controller:"bands",action:"live_info"}, method: :get) do %>
+    <% Band.pluck("name").uniq.each do |b| %>
+        <li><%= check_box :word, b %><%= b %></li>
+    <% end %>
+    <%= submit_tag '検索' %>
+<% end %>
+<% if @livelist %>
+    <% @livelist.pluck("name").uniq.each do |live| %>
+      <%= link_to live, number_shot_festivals_path %>
+    <% end %>
+<% end %>
+
+<%= link_to "TOPページへ", bands_path %>
+
+

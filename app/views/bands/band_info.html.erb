@@ -1,0 +1,10 @@
+<div class="tweets-container">
+  <% @bands.each do |t| %>
+    <div class="band">
+      <%= t.name %>
+      <% t.festivals.each do |f| %>
+        <%= f.name %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
